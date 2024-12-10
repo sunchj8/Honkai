@@ -1,0 +1,95 @@
+body {
+    background-image: url('Foto/fon2.png'); 
+    background-size: cover; 
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .menu li {
+    margin-right: 10px;
+  }
+  
+  .menu li a {
+    display: block;
+    padding: 20px; 
+    background-color:  rgba(148, 102, 223, 0.478);
+    border-radius: 40px; 
+    text-decoration: none;
+    color: rgb(218, 210, 245);
+    font-size: 20px; 
+    font-family: 'Inter', sans-serif;
+  }
+  .menu li a:hover {
+    display: block;
+    padding: 20px; 
+    background-color:  rgb(57, 42, 108);
+    border-radius: 50px; 
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 20px; 
+    font-family: 'Inter', sans-serif;
+  }
+  .container {
+    display: flex;
+    align-items: center; 
+  }
+
+
+  .container2 {
+    max-width: 85%;
+    margin:  auto;
+    background-color:  rgba(148, 102, 223, 0.478);
+    padding: 40px;
+    padding-top: 20px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    font-family: 'Inter', sans-serif;
+}
+
+
+  
+.basement {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.basement li {
+    list-style-type: none;
+}
+
+.basement a {
+    text-decoration: none;
+    color: rgb(218, 210, 245);
+    padding: 8px 16px;
+    display: block;
+}
+
+.basement a:hover {
+    color:  rgb(0, 0, 0);
+}
+ 
+footer {
+background-color: rgb(162, 137, 229);
+font-family: 'Inter', sans-serif;
+text-align: center;
+padding-bottom: 2%;
+
+}
+.container3 {
+    
+    display: flex;
+    align-items: center;
+    padding: 3%;
+  }
+
+  .znak {
+    padding-left: 10%;
+  }
