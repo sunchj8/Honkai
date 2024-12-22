@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style4.css">
 </head>
 <body>
     <div class="container">
@@ -20,7 +20,62 @@
                <li><a href="kabinet.html">Личный кабинет</a></li>
            </ul>
         </div>
+        <form id="vopros">
+            <h1>Genshin</h1>
+            <label for="question1">1. Как зовут Пиро Архонта?</label><br>
+        <input type="text" id="question1" name="question1"><br>
+        <div id="result1"></div>
 
+        <label for="question2">2. Как зовут ворона Фишль?</label><br>
+        <input type="text" id="question2" name="question2"><br>
+        <div id="result2"></div>
+    
+            <legend>3. Какой стихией можно заморозить воду?</legend>
+            <input type="radio" id="answer3a" name="question3" value="Гидро">
+            <label for="answer3a">Гидро</label><br>
+            <input type="radio" id="answer3b" name="question3" value="Крио">
+            <label for="answer3b">Крио</label><br>
+            <input type="radio" id="answer3c" name="question3" value="Анемо">
+            <label for="answer3c">Анемо</label><br>
+            <div id="result3"></div>
+    
+            <legend>4. Сколько усыпальниц в Ли Юэ?</legend>
+            <input type="radio" id="answer4a" name="question4" value="5">
+            <label for="answer4a">5</label><br>
+            <input type="radio" id="answer4b" name="question4" value="10">
+            <label for="answer4b">10</label><br>
+            <input type="radio" id="answer4c" name="question4" value="8">
+            <label for="answer4c">8</label><br>
+            <div id="result4"></div>
+    
+            <legend>5. Первый легендарный ивентовый персонаж?</legend>
+            <input type="radio" id="answer5a" name="question5" value="Кли">
+            <label for="answer5a">Кли</label><br>
+            <input type="radio" id="answer5b" name="question5" value="Чжун Ли">
+            <label for="answer5b">Чжун Ли</label><br>
+            <input type="radio" id="answer5c" name="question5" value="Тарталья">
+            <label for="answer5c">Тарталья</label><br>
+            <div id="result5"></div>
+    
+            <legend>6. В каком регионе правит Анемо Архонт?</legend>
+            <input type="radio" id="answer6a" name="question6" value="Инадзума">
+            <label for="answer6a">Инадзума</label><br>
+            <input type="radio" id="answer6b" name="question6" value="Сумеру">
+            <label for="answer6b">Сумеру</label><br>
+            <input type="radio" id="answer6c" name="question6" value="Мондштадт">
+            <label for="answer6c">Мондштадт</label><br>
+            <div id="result6"></div>
+
+        
+    
+            <div class="submit">
+                <button type="submit" id="btn1">Проверить</button>
+                <button type="button" id="btn2">Пройти заново</button>
+            </div>
+
+            <div id="resultDiv" style="margin-top: 20px;"></div>
+        </form>
+    
 
 
     </div>
@@ -39,7 +94,7 @@
     
 
 
-    
+    <script src="script4.js"></script>   
 </footer>
 </body>
 </html>

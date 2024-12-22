@@ -1,45 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Личный кабинет</title>
     <link rel="stylesheet" href="style1.css">
+    <style>
+        .user-info {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f9f9f9;
+            color: black
+        }
+
+        .user-info h2 {
+            margin-top: 0;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #ff4d4d;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background: #e60000;
+        }
+
+        .correct { color: rgb(20, 218, 20); 
+        }
+        .incorrect { color: red; 
+        }
+        .score { font-size: 1.2em; margin-top: 20px; 
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <div class="logo">
-        <a href="index.html"><img src="Foto/logo.png" alt="logo"></a>
+            <a href="index.html"><img src="Foto/logo.png" alt="logo"></a>
         </div>
-            <ul class="menu">
-               <li><a href="index.html">Описание</a></li>
-               <li><a href="slovarik.html">Словарик</a></li>
-               <li><a href="galery.html">Галерея</a></li>
-               <li><a href="test.html">Тест</a></li>
-               <li><a href="kabinet.html">Личный кабинет</a></li>
-           </ul>
+        <ul class="menu">
+            <li><a href="index.html">Описание</a></li>
+            <li><a href="slovarik.html">Словарик</a></li>
+            <li><a href="galery.html">Галерея</a></li>
+            <li><a href="test.html">Тест</a></li>
+            <li><a href="kabinet.html">Личный кабинет</a></li>
+        </ul>
+    </div>
+
+    <div class="container2">
+        <div class="user-info" id="userInfo">
+            <h2>Личный кабинет</h2>
+            <p><strong>Логин:</strong> <span id="userLogin">...</span></p>
+            <p><strong>Дата рождения:</strong> <span id="userDob">...</span></p>
+            <p><strong>Пол:</strong> <span id="userGender">...</span></p>
+            <button class="logout-btn" id="logoutBtn">Выйти</button>
         </div>
+    </div>
+
+    
+    <div class="container2">
+    <h1>Результаты теста</h1>
+    <div id="results"></div>
+    <div class="score" id="score"></div>
+    </div>
+
+
+
+    <ul class="basement">
+        <li><a href="index.html">Описание</a></li>
+        <li><a href="slovarik.html">Словарик</a></li>
+        <li><a href="galery.html">Галерея</a></li>
+        <li><a href="test.html">Тест</a></li>
+        <li><a href="kabinet.html">Личный кабинет</a></li>
+    </ul>
+
+    <footer>
+        <p class="container3"><strong>Контакты:</strong>
+            <img class="znak" src="Foto/znak1.png" alt="phone"> +7 952 446 88 33
+            <img class="znak" src="Foto/znak2.png" alt="phone"> +7 947 567 98 34
+            <img class="znak" src="Foto/znak3.png" alt="phone"> honkaistarrail@gmail.com
+            <img class="znak" src="Foto/znak4.png" alt="phone">@honkai_star
+        </p>
+        <p>© Honkai Star Rail, 2024</p>
+    </footer>
+
+    <script>
+        const userInfo = document.getElementById("userInfo");
+        const userLogin = document.getElementById("userLogin");
+        const userDob = document.getElementById("userDob");
+        const userGender = document.getElementById("userGender");
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        // Загружаем данные пользователя из localStorage
+        const userData = JSON.parse(localStorage.getItem("userData"));
+
+        // Если данных нет, перенаправляем на авторизацию
+        if (!userData) {
+            alert("Пожалуйста, войдите на сайт.");
+            window.location.href = "index.html";
+        } else {
+            // Отображаем данные пользователя
+            userLogin.textContent = userData.login;
+            userDob.textContent = userData.dob;
+            userGender.textContent = userData.gender;
+        }
+
+        // Обработчик выхода
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("userData");
+            window.location.href = "index.html";
+        });
+
+       // Получение данных из localStorage
+       const results = JSON.parse(localStorage.getItem("results")) || [];
+        const score = localStorage.getItem("score") || "0 из 6";
+
+        const resultsDiv = document.getElementById("results");
+        const scoreDiv = document.getElementById("score");
+
+        // Отображение результатов
+        results.forEach(resultHTML => {
+            const div = document.createElement("div");
+            div.innerHTML = resultHTML;
+            resultsDiv.appendChild(div);
+        });
+
+        // Отображение итогового балла
+        scoreDiv.textContent = `Вы набрали: ${score}`;
 
         
-
-    </div>
-    <ul class="basement">
-       <li><a href="index.html">Описание</a></li>
-       <li><a href="slovarik.html">Словарик</a></li>
-       <li><a href="galery.html">Галерея</a></li>
-       <li><a href="test.html">Тест</a></li>
-       <li><a href="kabinet.html">Личный кабинет</a></li>
-   </ul>
-</div>
-<footer>
-    <p class="container3"><strong>Контакты:</strong><img class="znak" src="Foto/znak1.png" alt="phone"> +7 952 446 88 33  <img class="znak" src="Foto/znak2.png" alt="phone"> +7 947 567 98 34 
-        <img class="znak" src="Foto/znak3.png" alt="phone">honkaistarrail@gmail.com <img class="znak" src="Foto/znak4.png" alt="phone">@honkai_star</p>
-    <p>© Honkai Star Rail, 2024</p>   
-    
-
-
-    
-</footer>
+        
+       
+    </script>
 </body>
+
 </html>
