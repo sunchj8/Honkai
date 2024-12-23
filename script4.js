@@ -1,10 +1,10 @@
 const correctAnswers = {
-    question1: "Мавуика",
-    question2: "Оз",
-    question3: "Крио",
-    question4: "8",
-    question5: "Кли",
-    question6: "Мондштадт"
+    question1: "Сервал",
+    question2: "Ветер",
+    question3: "Ярило-VI",
+    question4: "Сварог",
+    question5: "Пом-Пом",
+    question6: "Акивили"
 };
 
 document.getElementById('vopros').addEventListener('submit', function (event) {
@@ -14,7 +14,7 @@ document.getElementById('vopros').addEventListener('submit', function (event) {
 
     Object.keys(correctAnswers).forEach((question, index) => {
         const resultElement = document.getElementById(`result${index + 1}`);
-        resultElement.innerHTML = ""; // Очистка предыдущего результата
+        resultElement.innerHTML = ""; 
         let userAnswer;
 
         const firstInput = document.querySelector(`input[name="${question}"]`);
@@ -43,7 +43,7 @@ document.getElementById('vopros').addEventListener('submit', function (event) {
         resultDiv.textContent = `Ваши баллы: ${score} из 6`;
     });
 
-    // Сохранение результатов
+    
     localStorage.setItem("results", JSON.stringify(results));
     localStorage.setItem("score", `${score} из ${Object.keys(correctAnswers).length}`);
 
