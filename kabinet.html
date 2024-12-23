@@ -5,43 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет</title>
-    <link rel="stylesheet" href="style1.css">
-    <style>
-        .user-info {
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background: #f9f9f9;
-            color: black
-        }
-
-        .user-info h2 {
-            margin-top: 0;
-        }
-
-        .logout-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background: #ff4d4d;
-            color: rgb(255, 255, 255);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .logout-btn:hover {
-            background: #e60000;
-        }
-
-        .correct { color: rgb(20, 218, 20); 
-        }
-        .incorrect { color: red; 
-        }
-        .score { font-size: 1.2em; margin-top: 20px; 
-        }
-    </style>
+    <link rel="stylesheet" href="style5.css">
 </head>
 
 <body>
@@ -68,14 +32,15 @@
         </div>
     </div>
 
-    
     <div class="container2">
-    <h1>Результаты теста</h1>
-    <div id="results"></div>
-    <div class="score" id="score"></div>
+        <h1>Результаты теста</h1>
+        <div id="results"></div>
+        <div class="score" id="score"></div>
+        <button class="clear-btn" id="clearBtn">Очистить результаты</button>
+
+        
+        
     </div>
-
-
 
     <ul class="basement">
         <li><a href="index.html">Описание</a></li>
@@ -95,54 +60,7 @@
         <p>© Honkai Star Rail, 2024</p>
     </footer>
 
-    <script>
-        const userInfo = document.getElementById("userInfo");
-        const userLogin = document.getElementById("userLogin");
-        const userDob = document.getElementById("userDob");
-        const userGender = document.getElementById("userGender");
-        const logoutBtn = document.getElementById("logoutBtn");
-
-        // Загружаем данные пользователя из localStorage
-        const userData = JSON.parse(localStorage.getItem("userData"));
-
-        // Если данных нет, перенаправляем на авторизацию
-        if (!userData) {
-            alert("Пожалуйста, войдите на сайт.");
-            window.location.href = "index.html";
-        } else {
-            // Отображаем данные пользователя
-            userLogin.textContent = userData.login;
-            userDob.textContent = userData.dob;
-            userGender.textContent = userData.gender;
-        }
-
-        // Обработчик выхода
-        logoutBtn.addEventListener("click", () => {
-            localStorage.removeItem("userData");
-            window.location.href = "index.html";
-        });
-
-       // Получение данных из localStorage
-       const results = JSON.parse(localStorage.getItem("results")) || [];
-        const score = localStorage.getItem("score") || "0 из 6";
-
-        const resultsDiv = document.getElementById("results");
-        const scoreDiv = document.getElementById("score");
-
-        // Отображение результатов
-        results.forEach(resultHTML => {
-            const div = document.createElement("div");
-            div.innerHTML = resultHTML;
-            resultsDiv.appendChild(div);
-        });
-
-        // Отображение итогового балла
-        scoreDiv.textContent = `Вы набрали: ${score}`;
-
-        
-        
-       
-    </script>
+    <script src="script5.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 var x = 1;
 var array = document.getElementsByClassName('def');
 
-// Тексты для слайдов
+
 var captions = [
     "Охотник за стеллароном - Блэйд",
     "Детектив из клана Гончих Пенаконии - Галлахер",
@@ -17,12 +17,12 @@ function updateSlideInfo() {
 
 function updateCaption() {
     const captionElement = document.getElementById("slide_caption");
-    captionElement.style.opacity = 0; // Скрываем текущую надпись
+    captionElement.style.opacity = 0; 
 
     setTimeout(() => {
-        captionElement.textContent = captions[x - 1]; // Меняем текст на новый
-        captionElement.style.opacity = 1; // Плавно показываем новый текст
-    }, 500); // Время для завершения скрытия текста
+        captionElement.textContent = captions[x - 1]; 
+        captionElement.style.opacity = 1; 
+    }, 500); 
 }
 
 function forward() {
