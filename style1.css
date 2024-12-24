@@ -95,6 +95,24 @@ padding-bottom: 2%;
   }
 
 
+  .menu a.active {
+      font-weight: bold;
+
+      
+    display: block;
+    padding: 20px; 
+    background-color:  rgba(55, 28, 190, 0.478);
+    border-radius: 40px; 
+    text-decoration: none;
+    color: rgb(218, 210, 245);
+    font-size: 20px; 
+    font-family: 'Inter', sans-serif;
+}
+
+  
+
+
+
 
 
 
