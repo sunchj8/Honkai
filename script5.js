@@ -4,7 +4,7 @@ document.getElementById("birthdateDisplay").innerText = sessionStorage.getItem("
 document.getElementById("genderDisplay").innerText = sessionStorage.getItem("fe_male") === "М" ? "Мужской" : "Женский";
 
 
-document.getElementById("logoutBtn").addEventListener("click", function() {
+document.getElementById("logoutBtn1").addEventListener("click", function() {
     sessionStorage.clear(); 
     window.location.href = "avtor.html"; 
 });
