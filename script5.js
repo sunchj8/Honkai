@@ -1,28 +1,38 @@
-const userInfo = document.getElementById("userInfo");
-const userLogin = document.getElementById("userLogin");
-const userDob = document.getElementById("userDob");
-const userGender = document.getElementById("userGender");
-const logoutBtn = document.getElementById("logoutBtn");
+
+document.getElementById("nameDisplay").innerText = sessionStorage.getItem("name");
+document.getElementById("birthdateDisplay").innerText = sessionStorage.getItem("birthdate");
+document.getElementById("genderDisplay").innerText = sessionStorage.getItem("fe_male") === "М" ? "Мужской" : "Женский";
 
 
-const userData = JSON.parse(localStorage.getItem("userData"));
-
-
-if (!userData) {
-    
-    window.location.href = "index.html";
-} else {
-    
-    userLogin.textContent = userData.login;
-    userDob.textContent = userData.dob;
-    userGender.textContent = userData.gender;
-}
-
-
-logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("userData");
-    window.location.href = "index.html";
+document.getElementById("logoutBtn").addEventListener("click", function() {
+    sessionStorage.clear(); 
+    window.location.href = "avtor.html"; 
 });
+
+
+window.onload = () => {
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    
+    const userName = sessionStorage.getItem('name');
+
+    
+    if (!userName) {
+        location.href = "avtor.html";
+    }
+
+    
+    userNameDisplay.textContent = userName;
+
+    
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.clear(); 
+        location.href = "avtor.html"; 
+    });
+};
+
+
 
 
 const results = JSON.parse(localStorage.getItem("results")) || [];
@@ -53,5 +63,3 @@ clearBtn.addEventListener("click", () => {
 
     
 });
-
-

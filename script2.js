@@ -46,5 +46,27 @@ vvod.addEventListener('input', () => {
     renderGrid(vvod.value);
 });
 
-// Initial render
+
 renderGrid();
+
+window.onload = () => {
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+   
+    const userName = sessionStorage.getItem('name');
+
+    
+    if (!userName) {
+        location.href = "avtor.html";
+    }
+
+   
+    userNameDisplay.textContent = userName;
+
+    
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.clear(); 
+        location.href = "avtor.html"; 
+    });
+};

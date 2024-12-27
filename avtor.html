@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <head>
+        <link rel="stylesheet" href="style-avtor.css">
+    </head>
+    
+</head>
+
+<body>
+    <form name="avtorizazia" action="index.html" novalidate>  
+        <h1>Авторизация</h1>  
+        <div class="name_regestratur">  
+            <label for="name">Имя:</label>  
+            <input type="text" id="name" name="name" class="check" pattern="[а-яёА-ЯЁ0-9]{4,10}" required><br> 
+        </div>  
+        <div id="oshibka1" class="output"></div>  
+        <div class="birthdate_redesrat">  
+            <label for="birthdate">Дата рождения:</label>  
+            <input type="date" id="birthdate" name="birthdate" class="check" min="1904-12-31" max="2024-12-27" required>  
+        </div>  
+        <div id="oshibka2" class="output"></div>  
+        <div class="gender_reg">  
+            <div class="radio-group">  
+                <label>Пол:</label>  
+                <label for="fe_male">М</label>  
+                <input type="radio" id="fe_male" name="gender" value="М">  
+                <label for="fe_female">Ж</label>  
+                <input type="radio" id="fe_female" name="gender" value="Ж">  
+            </div>  
+        </div>  
+        <div id="genderoshibka" class="output"></div>  
+        <div class="submit">  
+            <button type="submit" id="btn">Продолжить</button>  
+        </div>  
+    </form>  
+    <script src="script6.js"></script>
+</body>
+
+</html>

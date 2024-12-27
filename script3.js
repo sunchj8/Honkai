@@ -46,3 +46,26 @@ document.getElementById("btn_backward").addEventListener("click", backward);
 
 updateSlideInfo();
 
+
+window.onload = () => {
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    
+    const userName = sessionStorage.getItem('name');
+
+    
+    if (!userName) {
+        location.href = "avtor.html";
+    }
+
+    
+    userNameDisplay.textContent = userName;
+
+    
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.clear(); 
+        location.href = "avtor.html"; 
+    });
+};
+

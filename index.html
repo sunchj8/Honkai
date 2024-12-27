@@ -10,30 +10,6 @@
 </head>
 
 <body>
-    <div id="authModal" class="hidden">
-        <div class="modal-content">
-            <h2>Авторизация</h2>
-            <form id="authForm">
-                <label for="login">Логин</label>
-                <input type="text" id="login" name="login" placeholder="Введите логин">
-                <div id="loginError" class="error"></div>
-
-                <label for="dob">Дата рождения</label>
-                <input type="date" id="dob" name="dob">
-                <div id="dobError" class="error"></div>
-
-                <label for="gender">Пол</label>
-                <select id="gender" name="gender">
-                    <option value="">Выберите...</option>
-                    <option value="Мужской">Мужской</option>
-                    <option value="Женский">Женский</option>
-                </select>
-                <div id="genderError" class="error"></div>
-
-                <button type="submit">Войти</button>
-            </form>
-        </div>
-    </div>
 
     <div class="container">
         <div class="logo">
@@ -46,7 +22,10 @@
             <li><a href="test.html">Тест</a></li>
             <li><a href="kabinet.html">Личный кабинет</a></li>
         </ul>
-        
+        <div class="user-info">
+            <span id="userNameDisplay"></span>
+            <button id="logoutBtn">Выйти</button>
+        </div>
     </div>
 
     <div class="container2">
@@ -107,8 +86,41 @@
         </p>
         <p>© Honkai Star Rail, 2024</p>
     </footer>
-  
-    <script src="script1.js"></script>
+    <script>
+        
+        window.onload = () => {
+            if (!sessionStorage.getItem('name') || !sessionStorage.getItem('birthdate') || !sessionStorage.getItem('fe_male')) {
+                
+                location.href = "avtor.html";
+            }
+        };
+
+
+
+
+        window.onload = () => {
+        const userNameDisplay = document.getElementById('userNameDisplay');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        
+        const userName = sessionStorage.getItem('name');
+
+        
+        if (!userName) {
+            location.href = "avtor.html";
+        }
+
+        
+        userNameDisplay.textContent = userName;
+
+        
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.clear(); 
+            location.href = "avtor.html"; 
+        });
+    };
+    </script>
+    
 </body>
 
 </html>

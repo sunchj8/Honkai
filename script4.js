@@ -14,7 +14,7 @@ document.getElementById('vopros').addEventListener('submit', function (event) {
 
     Object.keys(correctAnswers).forEach((question, index) => {
         const resultElement = document.getElementById(`result${index + 1}`);
-        resultElement.innerHTML = ""; 
+        resultElement.innerHTML = "";
         let userAnswer;
 
         const firstInput = document.querySelector(`input[name="${question}"]`);
@@ -37,22 +37,52 @@ document.getElementById('vopros').addEventListener('submit', function (event) {
 
             results.push(resultElement.innerHTML);
         }
-
-    
-        const resultDiv = document.getElementById("resultDiv");
-        resultDiv.textContent = `Ваши баллы: ${score} из 6`;
     });
+
+    const resultDiv = document.getElementById("resultDiv");
+    resultDiv.textContent = `Ваши баллы: ${score} из ${Object.keys(correctAnswers).length}`;
 
     
     localStorage.setItem("results", JSON.stringify(results));
     localStorage.setItem("score", `${score} из ${Object.keys(correctAnswers).length}`);
 
-   
+    
+    document.querySelectorAll('input').forEach(input => input.disabled = true);
 });
 
 document.getElementById('btn2').addEventListener('click', function () {
+    
     document.getElementById('vopros').reset();
+
+    
     Array.from(document.querySelectorAll("div[id^='result']")).forEach(div => div.innerHTML = "");
+
+    
     localStorage.removeItem("results");
     localStorage.removeItem("score");
+
+    
+    document.querySelectorAll('input').forEach(input => input.disabled = false);
 });
+
+window.onload = () => {
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    
+    const userName = sessionStorage.getItem('name');
+
+    
+    if (!userName) {
+        location.href = "avtor.html";
+    }
+
+    
+    userNameDisplay.textContent = userName;
+
+    
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.clear(); 
+        location.href = "avtor.html"; 
+    });
+};
